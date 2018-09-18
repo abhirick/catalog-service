@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Sku Details</title>
+</head>
+
+<body>
+<h1> Sku Details</h1>
+<table>
+	<tr><th colspan="15" align="left">Sku Id</th><td colspan="15"  align="left" th:text="${skuResponse.id}"></td><br/></tr>
+	<tr><th colspan="15" align="left">Sku Name</th><td colspan="15" align="left" th:text="${skuResponse.title}"></td><br/></tr>
+	<tr><th colspan="15" align="left">Sku Details</th><td colspan="15" align="left" th:text="${skuResponse.displayName}"></td><br/></tr>
+</table>
+</body>
+</html>

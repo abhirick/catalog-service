@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Product List </title>
+</head>
+<body>
+
+<h1>Products</h1>
+    <table>
+      <tr>
+      	<th>Index</th>
+      	<th>Product Id</th>
+      	<th>Display Name</th>
+       
+      </tr>
+      <tr th:each="product,iterationStatus  : ${productResponse}">
+      	<td th:text="${iterationStatus.count}">1</td>
+        <td th:text="${product.id}">001</td>
+     <td> <a th:href="@{/productdetail/{productId}(productId=${product.id})}" th:text="${product.displayName}" id="productdetails"></a></td>
+      </tr>
+    </table>
+</body>
+</html>

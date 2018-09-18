@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Product Details</title>
+</head>
+
+<body>
+<h1>Product Details</h1>
+	<table>
+		<tr><th align="left">Product Id</th>
+		<td align="left" th:text="${productResponse.id}"></td>
+		</tr>
+		<tr><th align="left">Title</th>
+		<td align="left" th:text="${productResponse.title}">title</td>
+		</tr>
+		<tr><th align="left">Display name</th>
+		<td align="left" th:text="${productResponse.displayName}">displayName</td>
+		</tr>
+		<tr><th align="left">Short Description</th>
+		<td align="left" th:text="${productResponse.shortDescription}">shortDescription</td>
+		</tr>
+		<tr><th align="left">Long Description</th>
+		<td align="left" th:text="${productResponse.longDescription}">longDescription</td></tr>
+		<tr><th align="left">Brand</th><td align="left" th:text="${productResponse.brand}">brand</td></tr>
+		<tr><th align="left">Discount Available</th><td th:text="${productResponse.discountable}">discountable</td></tr>
+		<tr><th align="left">Fulfiller Available</th><td th:text="${productResponse.fulfiller}">fulfiller</td></tr>
+		<tr><th align="left">Skus Available</th><td th:text="${productResponse.hasAvailableChildSkus}">hasAvailableChildSkus</td></tr>
+		<tr><th align="left">Price Available</th><td th:text="${productResponse.hasPrice}">hasPrice</td></tr>
+		<tr><th align="left">Instock</th><td th:text="${productResponse.available}">available</td></tr>
+		<tr><th align="left">Creation Date</th><td th:text="${productResponse.creationDate}">creationDate</td></tr>
+		<tr><th align="left">Return Availability</th><td th:text="${productResponse.nonReturnable}">nonReturnable</td></tr>
+		<tr><th align="left">Online Only</th><td th:text="${productResponse.onlineOnly}">onlineOnly</td></tr>
+		<tr><th align="left">Type</th><td th:text="${productResponse.type}">type</td></tr>
+		<tr><th align="left">Vat Code</th><td th:text="${productResponse.vatCode}">vatCode</td></tr>
+		</table>
+<h3>Sku Details</h3>
+		<table>
+		<tr th:each="sku,iterationStatus  : ${productResponse.childSKUs}">
+      	<td th:text="${iterationStatus.count}">1</td>
+     <td> <a th:href="@{/skudetail/{skuId}(skuId=${sku})}" th:text="${sku}" id="skudetails"></a></td></tr>
+     </table>
+</body>
+</html>

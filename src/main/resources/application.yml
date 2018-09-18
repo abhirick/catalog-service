@@ -1,0 +1,71 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overriden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+# The port on which the application runs.
+spring:
+  application:      
+    name: catalog-service
+  h2: # Enabling H2 Console
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+  profiles:
+    active: local
+      
+server:
+  port: 8086
+
+# Actuator Configurations:
+endpoints:
+  actuator:
+    sensitive: false
+  metrics:
+    sensitive: false
+  trace:
+    sensitive: false
+  auditevents:
+    sensitive: false
+  autoconfig:
+    sensitive: false
+  beans:
+    sensitive: false
+# Mask the sensitive information in actuator response
+  configprops:
+    sensitive: false
+    keys-to-sanitize: keyValue,clientSecret
+#    path: /admin/configprops
+  dump:
+    sensitive: false
+  loggers:
+    sensitive: false
+# Mask the sensitive information in actuator response
+  env:
+    sensitive: false
+    keys-to-sanitize: key-value,clientSecret
+# path: /admin/env
+  mappings:
+    sensitive: false
+  hypermedia:
+    enabled: true
+  info:
+    sensitive: false
+    
+    
+# ===================================================================
+# Custom properties
+# ===================================================================
+
+
+   
+     
